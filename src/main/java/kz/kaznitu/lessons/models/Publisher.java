@@ -16,14 +16,16 @@ public class Publisher {
     private String address;
 
 
-    public Publisher() {
-    }
 
     public Publisher(String name, String email, int phone, String address) {
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.address = address;
+    }
+
+    public Publisher() {
+
     }
 
     public long getId() {
