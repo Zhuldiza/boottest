@@ -17,13 +17,11 @@ public class AuthorController {
     @Autowired
     private AuthorRepository authorRepository ;
     private long a;
-
     @RequestMapping("/add")
     public String showForm(Model model){
         model.addAttribute("author",new Author());
         return "author_add_form";
     }
-
     @RequestMapping("/addd")
     public String showFormm(Model model){
         model.addAttribute("authorr",new Author());

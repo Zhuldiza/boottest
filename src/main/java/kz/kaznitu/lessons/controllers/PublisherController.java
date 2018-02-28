@@ -33,16 +33,16 @@ public class PublisherController {
     @PostMapping("/add")
     public String addPublisher(@ModelAttribute Publisher publisher){
         publisherRepository.save(publisher) ;
-        return "redirect:/pub/all" ;
+        return "redirect:/pub/main" ;
     }
 
-    @GetMapping("/all2")
+    @GetMapping("/main2")
     public @ResponseBody Iterable<Publisher> allPublisher(){
         return publisherRepository.findAll() ;
     }
 
 
-    @GetMapping("/all")
+    @GetMapping("/main")
     public String allPublisher2(Model model){
         List<Publisher> publishers = (List<Publisher>) publisherRepository.findAll();
         model.addAttribute("publishers", publishers) ;
@@ -58,7 +58,7 @@ public class PublisherController {
         publisher1.setPhone(publisher.getPhone());
         publisher1.setAddress(publisher.getAddress());
         publisherRepository.save(publisher1) ;
-        return "redirect:/pub/all" ;
+        return "redirect:/pub/main" ;
     }
     @RequestMapping(value = "/update",method = RequestMethod.GET)
     public ModelAndView updatePublishers(Model model,@RequestParam("id") long id){
@@ -73,6 +73,6 @@ public class PublisherController {
     @RequestMapping(value = "/deletePublisher", method = RequestMethod.GET)
     public ModelAndView deleteContact (@RequestParam("id")long idd){
         publisherRepository.deleteById(idd);
-        return new ModelAndView("redirect:/pub/all");
+        return new ModelAndView("redirect:/pub/main");
     }
 }
